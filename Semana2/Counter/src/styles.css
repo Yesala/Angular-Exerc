@@ -1,0 +1,33 @@
+* {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 200;
+  }
+  
+  html, body {
+  
+    background: #fff;
+    margin: 1rem;
+    color: #3e4144;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  button {
+    background-color: #24a0ed;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
+    font-size: xx-large;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  button:hover {
+    background-color: #29adff;
+  }
+  
+  button:focus{
+    outline: none;
+  }
+  
