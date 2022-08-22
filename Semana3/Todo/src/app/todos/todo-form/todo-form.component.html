@@ -1,0 +1,32 @@
+<section>
+    <h3>{{ title }}</h3>
+    <form (ngSubmit)="add()">
+        <label class="form-label" for="tarea">Tarea</label>
+        <input 
+        class="form-control"
+        id="tarea"
+        name="task"
+        [placeholder]="placeholder"
+        type="text"
+        [(ngModel)]="todo.task"
+        />
+        <button class="btn btn-primary" type="submit">Agregar tarea</button>
+    </form>
+</section>
+
+
+<!-- <section>
+    <h3>{{ title }}</h3>
+    <form (submit)="addWithEvent($event)">
+        <label class="form-label" for="tarea">Tarea</label>
+        <input 
+        class= "form-control"
+        id= "tarea"
+        (input)="inputHandler($event)"
+        [placeholder]="placeholder"
+        type="text"
+        [value]="todo.task"
+        />
+        <button class="btn btn-primary" type="submit">Agregar tarea</button>
+    </form>
+</section> -->
