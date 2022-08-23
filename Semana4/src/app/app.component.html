@@ -1,0 +1,16 @@
+<h1>Semana 4</h1>
+
+<h2>Directivas estructurales</h2>
+<h3>*ngIf</h3>
+<div *ngIf="false">Caso 1</div>
+<div *ngIf="activo">Caso 2</div>
+<div *ngIf="a < b">Caso 3</div>
+<div *ngIf="valor === 'si'">Caso 4</div>
+<div *ngIf="unaFuncion()">Caso 5</div>
+
+<h3>*ngFor</h3>
+<ul>
+  <li *ngFor="let color of colores">
+    {{ color }}
+  </li>
+</ul>
