@@ -15,4 +15,10 @@ export class AppComponent {
   unaFuncion = () : boolean => false
 
   colores : string [] = ['green', 'red', 'blue', 'yellow']
+
+  usuarios : string[] = ['Maria', 'Jose', 'Juan', 'Pedro']
+
+  colorSeleccionado : string = ''
+
+  onColorSelectedHandler = (e : any) => this.colorSeleccionado = e.target.value
 }

@@ -7,10 +7,42 @@
 <div *ngIf="a < b">Caso 3</div>
 <div *ngIf="valor === 'si'">Caso 4</div>
 <div *ngIf="unaFuncion()">Caso 5</div>
-
 <h3>*ngFor</h3>
 <ul>
   <li *ngFor="let color of colores">
     {{ color }}
   </li>
 </ul>
+<h3>*ngFor con componente</h3>
+<ul>
+  <app-usuario *ngFor="let usuario of usuarios" [usuario]="usuario"></app-usuario>
+</ul>
+<h3>*ngSwitch</h3>
+<select (change)="onColorSelectedHandler($event)" title="Colores">
+  <option [defaultSelected]="true" [disabled]="true">Seleccione un color</option>
+  <option *ngFor="let color of colores" value="{{ color }}">{{ color }}</option>
+</select>
+<div [ngSwitch]="colorSeleccionado">
+<p *ngSwitchCase="colores[0]">1. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+<p *ngSwitchCase="colores[1]">2. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+<p *ngSwitchCase="colores[2]">3. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+<p *ngSwitchCase="colores[3]">4. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+<p *ngSwitchDefault>* Usted no ha seleccionado ningun color</p>
+</div>
+<h3>Directivas de atributos</h3>
+<h3>*ngStyle</h3>
+<div [ngSwitch]="colorSeleccionado">
+  <p *ngSwitchCase="colores[0]" [ngStyle]="{ background: colorSeleccionado, color: 'white'}">1. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+  <p *ngSwitchCase="colores[1]" [ngStyle]="{ background: colorSeleccionado, color: 'white' }">2. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+  <p *ngSwitchCase="colores[2]" [ngStyle]="{ background: colorSeleccionado, color: 'white' }">3. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+  <p *ngSwitchCase="colores[3]" [ngStyle]="{ background: colorSeleccionado }">4. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+  <p *ngSwitchDefault>* Usted no ha seleccionado ningun color</p>
+  </div>
+<h3>*ngClass</h3>
+<div [ngSwitch]="colorSeleccionado">
+  <p *ngSwitchCase="colores[0]" [ngStyle]="{ background: colorSeleccionado, color: 'white'}" [ngClass]="{ favorite: colorSeleccionado==='blue' }">1. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+  <p *ngSwitchCase="colores[1]" [ngStyle]="{ background: colorSeleccionado, color: 'white'}" [ngClass]="{ favorite: colorSeleccionado==='blue' }">2. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+  <p *ngSwitchCase="colores[2]" [ngStyle]="{ background: colorSeleccionado, color: 'white'}" [ngClass]="{ favorite: colorSeleccionado==='blue' }">3. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+  <p *ngSwitchCase="colores[3]" [ngStyle]="{ background: colorSeleccionado }">4. Usted ha seleccionado el color: {{ colorSeleccionado }}</p>
+  <p *ngSwitchDefault>* Usted no ha seleccionado ningun color</p>
+  </div>
