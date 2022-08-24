@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ColoresService } from './colores.service';
 
 @Component({
   selector: 'app-root',
@@ -21,4 +22,11 @@ export class AppComponent {
   colorSeleccionado : string = ''
 
   onColorSelectedHandler = (e : any) => this.colorSeleccionado = e.target.value
+
+  constructor(public coloresService : ColoresService){
+  setTimeout(() => {
+    coloresService.colores.push('blanco')
+  }, 5000);//No se deben exponer las propiedades
+  }
+
 }
