@@ -1,0 +1,115 @@
+<!-- Formulario template-drive -->
+<!-- One way data binding -->
+
+<!-- <pre>{{ contactForm.value | json }}</pre>
+
+<h1>Contacto</h1>
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" >
+<div class="mb-4">
+  <label for="name" class="form">Nombre completo</label>
+  <input id="name" type="text" class="form-control" name="name" ngModel/>
+</div>
+<div class="mb-4 form-check">
+  <label for="accept" class="form-label">He leido y acepto los terminos y condiciones</label>
+  <input class="form-check-input" id="accept" name="accept" type="checkbox" ngModel>
+</div>
+<div class="mb-4">
+  <label for="operativeSystem" class="form-label">Sistema operativo</label>
+  <select name="operativeSystem" id="operativeSystem" class="form-select form-select-sm" title="operativeSystem" ngModel>
+    <option selected disabled>Seleccione una opcion</option>
+    <option value="windows">Windows</option>
+    <option value="Linux">Linux</option>
+    <option value="mac">Mac</option>
+  </select>
+</div>
+<div class="mb-4">
+  <label for="comment" class="form-label">Comentarios</label>
+  <textarea class="form-control" id="comment" name="comment" ngModel></textarea>
+</div>
+<div class="d-flex justify-content-end">
+  <button class="btn btn-primary"type="submit">Enviar</button>
+</div>
+</form> -->
+
+
+<!--**********************************************************-->
+<!-- Two way data binding con validaciones -->
+
+<!-- <pre>{{ contactForm.value | json }}</pre>
+
+<h1>Contacto</h1>
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" >
+<div class="mb-4">
+  <label for="name" class="form">Nombre completo</label>
+  <input id="name" class="form-control" name="name" type="text" [(ngModel)]="model.name" minlength= "3" required #name="ngModel"/>
+  <p [hidden]="name.valid || name.pristine" class="alert alert-danger">Este campo es requerido y debe tener al menos 3 caracteres</p>
+</div>
+<div class="mb-4 form-check">
+  <label for="accept" class="form-label mt-1">He leido y acepto los terminos y condiciones</label>
+  <input class="form-check-input" id="accept" name="accept" type="checkbox" [(ngModel)]="model.accept">
+</div>
+<div class="mb-4">
+  <label for="operativeSystem" class="form-label">Sistema operativo</label>
+  <select class="form-select form-select-sm" 
+          name="operativeSystem" 
+          id="operativeSystem" 
+          title="operativeSystem" 
+          [(ngModel)]="model.operativeSystem">
+    <option selected disabled>Seleccione una opcion</option>
+    <option value="windows">Windows</option>
+    <option value="Linux">Linux</option>
+    <option value="mac">Mac</option>
+  </select>
+</div>
+<div class="mb-4">
+  <label for="comment" class="form-label">Comentarios</label>
+  <textarea class="form-control" id="comment" name="comment" [(ngModel)]="model.comment"></textarea>
+</div>
+<div class="d-flex justify-content-end">
+  <button class="btn btn-primary"type="submit" [disabled]="contactForm.invalid">Enviar</button>
+</div>
+</form> -->
+
+
+<!--**********************************************************-->
+<!-- Formularios reactivos -->
+
+<pre>{{ contactForm.value | json }}</pre>
+
+<h1>Contacto</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+<div class="mb-4">
+  <label for="name" class="form">Nombre completo</label>
+  <input id="name" class="form-control" name="name" type="text" minlength= "3" required formControlName = "name"/>
+  <p *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</p>
+  <p *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener al menos 3 caracteres</p>
+</div>
+<div class="mb-4 form-check">
+  <label for="accept" class="form-label mt-1">He leido y acepto los terminos y condiciones</label>
+  <input class="form-check-input" id="accept" name="accept" type="checkbox" formControlName = "accept">
+</div>
+<div class="mb-4">
+  <label for="operativeSystem" class="form-label">Sistema operativo</label>
+  <select class="form-select form-select-sm" 
+          name="operativeSystem" 
+          id="operativeSystem" 
+          title="operativeSystem"
+          formControlName = "operativeSystem">
+    <option selected disabled>Seleccione una opcion</option>
+    <option value="windows">Windows</option>
+    <option value="Linux">Linux</option>
+    <option value="mac">Mac</option>
+  </select>
+</div>
+<div class="mb-4">
+  <label for="comment" class="form-label">Comentarios</label>
+  <textarea class="form-control" id="comment" name="comment" formControlName = "comment"></textarea>
+</div>
+<div class="d-flex justify-content-end">
+  <button class="btn btn-primary"type="submit" [disabled]="contactForm.invalid">Enviar</button>
+</div>
+</form>
+
+
+
+
