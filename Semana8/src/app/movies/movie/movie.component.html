@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col my-3" *ngIf="movie">
+    <div class="d-flex">
+      <div>
+        <img [src]="poster()" class="rounded" alt="...">
+      </div>
+      <div class="ms-3">
+        <h3>{{ movie.original_title }} ({{ movie.release_date | date:'yyyy' }})</h3>
+        <h4>Overview</h4>
+        <p>{{ movie.overview }}</p>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="ratio ratio-16x9">
+    <iframe [src]="videoSafeUrl" title="YouTube video" allowfullscreen></iframe>
+  </div>
+  <hr />
+  <h4>Cast</h4>
+  <!-- Agregar el elenco -->
+</div>
