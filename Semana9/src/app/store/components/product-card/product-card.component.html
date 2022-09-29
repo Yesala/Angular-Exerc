@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ product.title }}</mat-card-title>
+    <mat-card-subtitle>{{ product.description }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image [src]="product.thumbnail" alt="image" />
+
+  <mat-card-content>
+    <h3>{{ product.brand }}</h3>
+    <p>
+      <strong>Price: </strong> {{ product.price | currency }}
+      <br>
+      <strong>Category: </strong> {{ product.category }}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button
+            [routerLink]="['/store/products', product.id]"
+            color="primary">Details</button>
+    <button mat-raised-button
+            [routerLink]="['/store/add', product.id]"
+            color="accent">Edit</button>
+  </mat-card-actions>
+
+</mat-card>

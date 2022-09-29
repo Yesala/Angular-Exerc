@@ -1,0 +1,11 @@
+<h1>Products</h1>
+<mat-divider></mat-divider>
+<br />
+<div class="card-container">
+  <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+</div>
+<!-- <mat-grid-list cols="4" rowHeight="40rem" gutterSize="1rem">
+  <mat-grid-tile *ngFor="let product of products">
+    <app-product-card [product]="product"></app-product-card>
+  </mat-grid-tile>
+</mat-grid-list> -->

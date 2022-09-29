@@ -1,0 +1,46 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav>
+    <mat-toolbar color="primary">
+      <span>Menu</span>
+    </mat-toolbar>
+
+    <mat-nav-list>
+
+      <a routerLink="./products" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>list_alt</mat-icon>
+        <span>Products</span>
+      </a>
+
+      <a routerLink="./add" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>add</mat-icon>
+        <span>Add a product</span>
+      </a>
+
+      <a routerLink="./search" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>search</mat-icon>
+        <span>Search</span>
+      </a>
+
+    </mat-nav-list>
+
+    <hr />
+
+    <mat-nav-list>
+      <a routerLink="./products" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>shopping_cart</mat-icon>
+        <span>My cart</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="app">
+      <router-outlet></router-outlet>
+    </div>
+
+</mat-sidenav-container>
